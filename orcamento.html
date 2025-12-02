@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LT Conservação e Limpeza</title>
+  <link rel="icon" href="LT.png" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+
+<section style="padding: 40px 20px; background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center;">
+
+  <h2 style="font-size: 2.5rem; margin-bottom: 20px;">
+    Solicite seu Orçamento sem Compromisso
+  </h2>
+
+  <form id="formOrcamento" style="max-width: 600px; margin: 0 auto; display: grid; gap: 15px;">
+
+    <input type="text" name="nome" placeholder="Primeiro nome" required style="padding: 12px; border-radius: 8px; border: none;">
+
+    <input type="text" name="condominio" placeholder="Nome do condomínio" required style="padding: 12px; border-radius: 8px; border: none;">
+
+    <input type="text" name="cidade" placeholder="Cidade" required style="padding: 12px; border-radius: 8px; border: none;">
+
+    <input type="text" name="bairro" placeholder="Bairro" required style="padding: 12px; border-radius: 8px; border: none;">
+
+    <input type="text" name="torres" placeholder="Nº de torres" required style="padding: 12px; border-radius: 8px; border: none;">
+
+    <input type="text" name="unidades" placeholder="Nº de unidades" required style="padding: 12px; border-radius: 8px; border: none;">
+
+    <input type="tel" name="telefone" placeholder="WhatsApp com DDD" required style="padding: 12px; border-radius: 8px; border: none;">
+
+    <textarea name="mensagem" rows="4" placeholder="Mensagem opcional" style="padding: 12px; border-radius: 8px; border: none;"></textarea>
+
+    <!-- NOVOS CAMPOS -->
+    <label style="text-align: left; font-size: 1.1rem;">O condomínio possui elevador?</label>
+    <select name="elevador" required style="padding: 12px; border-radius: 8px; border: none;">
+      <option value="">Selecione</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+
+   <label style="text-align: left; font-size: 1.1rem;">Possui Salão de Festa?</label>
+    <select name="salao_de_festa" required style="padding: 12px; border-radius: 8px; border: none;">
+      <option value="">Selecione</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+
+
+    <label style="text-align: left; font-size: 1.1rem;">Possui banheiros?</label>
+    <select name="banheiros" required style="padding: 12px; border-radius: 8px; border: none;">
+      <option value="">Selecione</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+      
+    <label style="text-align: left; font-size: 1.1rem;">Possui jardim?</label>
+    <select name="jardim" required style="padding: 12px; border-radius: 8px; border: none;">
+      <option value="">Selecione</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+
+    <button type="submit" style="padding: 15px; background: #00d4aa; color: white; font-size: 1.3rem; border: none; border-radius: 8px; cursor: pointer;">
+      Enviar Orçamento
+    </button>
+  </form>
+
+  <p id="status" style="margin-top: 20px; font-size: 1.2rem;"></p>
+  
+  <!-- BOTÃO VOLTAR -->
+  <a href="index.html" 
+     style="
+       display: inline-block;
+       margin-top: 25px;
+       padding: 10px 20px;
+       background: rgba(255,255,255,0.2);
+       color: white;
+       border-radius: 6px;
+       text-decoration: none;
+       font-size: 1rem;
+       transition: 0.3s;
+     "
+     onmouseover="this.style.background='rgba(255,255,255,0.35)'"
+     onmouseout="this.style.background='rgba(255,255,255,0.2)'"
+  >← Voltar</a>
+
+</section>
+
+<script>
+document.getElementById("formOrcamento").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const btn = e.target.querySelector("button[type='submit']");
+  const status = document.getElementById("status");
+
+  btn.disabled = true;
+  btn.textContent = "Enviando...";
+  status.textContent = "Aguarde...";
+  status.style.color = "#ffd43b";
+
+const dados = {
+  nome: e.target.nome.value.trim(),
+  condominio: e.target.condominio.value.trim(),
+  cidade: e.target.cidade.value.trim(),
+  bairro: e.target.bairro.value.trim(),
+  torres: e.target.torres.value.trim(),
+  unidades: e.target.unidades.value.trim(),
+  telefone: e.target.telefone.value.trim(),
+  mensagem: e.target.mensagem.value.trim(),
+  elevador: e.target.elevador.value,
+  salao_de_festa: e.target.salao_de_festa.value, // <- corrigido
+  banheiros: e.target.banheiros.value,
+  jardim: e.target.jardim.value
+};
+
+
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbxuewMfp1-JkHYDTNqYk7EjUaetUOz9llHNi1BskrSphqWYPKxNr--qIK9xw7-rawY6Ug/exec", {
+      method: "POST",
+      body: JSON.stringify(dados),
+      headers: { "Content-Type": "application/json" },
+      mode: "no-cors"
+    });
+
+    status.style.color = "#00d4aa";
+    status.textContent = "Orçamento enviado com sucesso!";
+
+    e.target.reset();
+
+  } catch (err) {
+    status.style.color = "#ff6b6b";
+    status.textContent = "Erro ao enviar. Tente novamente.";
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Enviar Orçamento";
+  }
+});
+</script>
+
+</body>
+</html>

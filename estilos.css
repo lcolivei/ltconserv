@@ -1,0 +1,74 @@
+/* ================= MENU SUPERIOR ================= */
+/* Container isolado do header */
+.lt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #1a73e8;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: static;
+  top: 0;
+  z-index: 999;
+}
+
+/* Container circular — sempre quadrado */
+.lt-header .logo {
+  width: clamp(40px, 9vw, 64px); /* tamanho responsivo: mínimo 40px, máximo 64px */
+  aspect-ratio: 1 / 1;           /* garante proporção 1:1 (quadrado) */
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  flex-shrink: 0;                /* evita que encolha demais se o header for apertado */
+}
+
+/* Imagem preenche o círculo sem distorcer */
+.lt-header .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* cobre o container recortando as bordas se necessário */
+  display: block;    /* remove espaços em linha */
+}
+
+/* Fallback para navegadores sem suporte a aspect-ratio */
+@media (max-width: 600px) {
+  .lt-header .logo {
+    width: 48px;
+    height: 48px; /* define explicitamente altura igual à largura no mobile */
+  }
+}
+
+/* Menu isolado */
+.lt-header .menu a {
+  margin: 0 15px;
+  font-size: 16px;
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.3s ease; 
+  font-weight: 500;
+}
+
+.lt-header .menu a:hover {
+  color: #ffffff;
+}
+
+/* Botão de ação isolado */
+.lt-header .button-cta {
+  background: #1a3d5c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lt-header .button-cta:hover {
+  background: #16344e;
+}
+
+
+
+
