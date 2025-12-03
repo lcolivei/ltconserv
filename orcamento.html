@@ -1,179 +1,322 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LT Conservação e Limpeza</title>
-  <link rel="icon" href="LT.png" />
-  <link rel="stylesheet" href="estilos.css" />
-  
-    <style>
-    /* Garante que a seção do formulário tenha a largura máxima */
-    section {
-      padding: 40px 20px; 
-      background: linear-gradient(135deg, #1e3c72, #2a5298); 
-      color: white; 
-      text-align: center;
-    }
-    
-    /* Contêiner para cada par de rótulo e campo */
-    .form-group {
-      text-align: left;
-      display: flex; /* Flexbox para controlar o layout interno */
-      flex-direction: column; /* Rótulo acima do campo */
-      gap: 5px; /* Espaço entre o rótulo e o campo */
-    }
-    
-    /* Estilo dos rótulos (labels) */
-    .form-group label {
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-    
-    /* Estilo UNIFORME para todos os campos de entrada, textarea e select */
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      padding: 12px;
-      border-radius: 8px; /* Lados arredondados */
-      border: none;
-      width: 100%; /* Mesma largura para todos os campos */
-      box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LT Conservação e Limpeza - Orçamento</title>
+  <link rel="icon" href="LT.png" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #1e3c72;
+      --primary-light: #2a5298;
+      --accent: #00d4aa;
+      --accent-hover: #00b894;
+      --text: #ffffff;
+      --gray-light: rgba(255, 255, 255, 0.15);
+      --gray-lighter: rgba(255, 255, 255, 0.25);
+      --radius: 12px;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: var(--text);
+    }
+
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      padding: 50px 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      background: linear-gradient(to right, #ffffff, #00d4aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+
+    input, textarea, select {
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.18);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.2);
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 12px;
+    }
+
+    button {
+      padding: 16px 24px;
+      background: var(--accent);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      box-shadow: 0 8px 20px rgba(0, 212, 170, 0.3);
+    }
+
+    button:hover {
+      background: var(--accent-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0, 212, 170, 0.4);
+    }
+
+    button:active {
+      transform: translateY(-1px);
+    }
+
+    #status {
+      margin-top: 20px;
+      font-weight: 500;
+      min-height: 28px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      padding: 12px 24px;
+      background: var(--gray-light);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: var(--gray-lighter);
+      transform: translateY(-2px);
+    }
+
+    /* Responsivo */
+    @media (max-width: 640px) {
+      section {
+        padding: 40px 20px;
+      }
+      h2 { font-size: 2.2rem; }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <section>
+  <h2>Solicite seu Orçamento</h2>
+  <p class="subtitle">Preenchimento rápido • Resposta em até 24h • Sem compromisso</p>
 
-  <h2 style="font-size: 2.5rem; margin-bottom: 20px;">
-    Solicite seu Orçamento sem Compromisso
-  </h2>
+  <form id="formOrcamento">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nome">Seu Nome Completo *</label>
+        <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+      </div>
+      <div class="form-group">
+        <label for="telefone">WhatsApp com DDD *</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="31 98765-4321" required>
+      </div>
+    </div>
 
-  <form id="formOrcamento" style="max-width: 600px; margin: 0 auto; display: grid; gap: 15px;">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="condominio">Nome do Condomínio *</label>
+        <input type="text" id="condominio" name="condominio" placeholder="Residencial Jardim das Flores" required>
+      </div>
+      <div class="form-group">
+        <label for="cidade">Cidade *</label>
+        <input type="text" id="cidade" name="cidade" placeholder="Belo Horizonte" required>
+      </div>
+    </div>
 
-        <div class="form-group">
-      <label for="nome">Seu Nome</label>
-      <input type="text" id="nome" name="nome" placeholder="Seu primeiro nome completo" required>
-    </div>
-    
-        <div class="form-group">
-      <label for="condominio">Nome do Condomínio</label>
-      <input type="text" id="condominio" name="condominio" placeholder="Ex: Residencial Flores" required>
-    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bairro">Bairro *</label>
+        <input type="text" id="bairro" name="bairro" placeholder="Buritis" required>
+      </div>
+      <div class="form-group">
+        <label for="torres">Número de Torres *</label>
+        <input type="number" id="torres" name="torres" min="1" placeholder="3" required>
+      </div>
+    </div>
 
-        <div class="form-group">
-      <label for="cidade">Cidade</label>
-      <input type="text" id="cidade" name="cidade" placeholder="Ex: Belo Horizonte" required>
-    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="unidades">Número de Apartamentos *</label>
+        <input type="number" id="unidades" name="unidades" min="1" placeholder="96" required>
+      </div>
+      <div class="form-group">
+        <label for="elevador">Possui elevador? *</label>
+        <select id="elevador" name="elevador" required>
+          <option value="">Selecione</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+    </div>
 
-        <div class="form-group">
-      <label for="bairro">Bairro</label>
-      <input type="text" id="bairro" name="bairro" placeholder="Ex: União" required>
-    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="salao_de_festa">Salão de festas?</label>
+        <select id="salao_de_festa" name="salao_de_festa" required>
+          <option value="">Selecione</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="banheiros">Banheiros nas áreas comuns?</label>
+        <select id="banheiros" name="banheiros" required>
+          <option value="">Selecione</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+    </div>
 
-        <div class="form-group">
-      <label for="torres">Número de Torres</label>
-      <input type="number" id="torres" name="torres" placeholder="Apenas números" required>
-    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="jardim">Área verde ou jardim?</label>
+        <select id="jardim" name="jardim" required>
+          <option value="">Selecione</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+      <div class="form-group"></div>
+    </div>
 
-        <div class="form-group">
-      <label for="unidades">Número de Unidades/Apartamentos</label>
-      <input type="number" id="unidades" name="unidades" placeholder="Apenas números" required>
-    </div>
+    <div class="form-group">
+      <label for="mensagem">Mensagem adicional (opcional)</label>
+      <textarea id="mensagem" name="mensagem" rows="4" placeholder="Exemplo: precisamos de limpeza pós-obra, ou limpeza diária das áreas comuns..."></textarea>
+    </div>
 
-        <div class="form-group">
-      <label for="telefone">WhatsApp (com DDD)</label>
-      <input type="tel" id="telefone" name="telefone" placeholder="Ex: 31987654321" required>
-    </div>
+    <button type="submit">Enviar Orçamento</button>
+    <div id="status"></div>
+  </form>
 
-        <div class="form-group">
-      <label for="mensagem">Mensagem Opcional</label>
-      <textarea id="mensagem" name="mensagem" rows="4" placeholder="Detalhes adicionais sobre o serviço que você precisa."></textarea>
-    </div>
-
-        <div class="form-group">
-      <label for="elevador">O condomínio possui elevador?</label>
-      <select id="elevador" name="elevador" required>
-        <option value="">Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="salao_de_festa">Possui Salão de Festa?</label>
-      <select id="salao_de_festa" name="salao_de_festa" required>
-        <option value="">Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-      </select>
-    </div>
-
-
-    <div class="form-group">
-      <label for="banheiros">Possui banheiros nas áreas comuns?</label>
-      <select id="banheiros" name="banheiros" required>
-        <option value="">Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-      </select>
-    </div>
-      
-    <div class="form-group">
-      <label for="jardim">Possui jardim ou área verde?</label>
-      <select id="jardim" name="jardim" required>
-        <option value="">Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-      </select>
-    </div>
-
-    <button type="submit" style="padding: 15px; background: #00d4aa; color: white; font-size: 1.3rem; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px;">
-      Enviar Orçamento
-    </button>
-  </form>
-
-  <p id="status" style="margin-top: 20px; font-size: 1.2rem;"></p>
-  
-    <a href="index.html" 
-     style="
-       display: inline-block;
-       margin-top: 25px;
-       padding: 10px 20px;
-       background: rgba(255,255,255,0.2);
-       color: white;
-       border-radius: 6px;
-       text-decoration: none;
-       font-size: 1rem;
-       transition: 0.3s;
-     "
-     onmouseover="this.style.background='rgba(255,255,255,0.35)'"
-     onmouseout="this.style.background='rgba(255,255,255,0.2)'"
-  >← Voltar</a>
-
+  <a href="index.html" class="back-link">← Voltar para o site</a>
 </section>
 
 <script>
-document.getElementById("formOrcamento").addEventListener("submit", async function(e) {
-  e.preventDefault();
+  // Seu script do Google Apps Script continua funcionando igual
+  document.getElementById("formOrcamento").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector("button[type='submit']");
+    const status = document.getElementById("status");
+    btn.disabled = true;
+    btn.textContent = "Enviando...";
+    status.textContent = "Aguarde um momento...";
+    status.style.color = "#ffd43b";
 
-  const btn = e.target.querySelector("button[type='submit']");
-  const status = document.getElementById("status");
+    const formData = new FormData(e.target);
+    const dadosParams = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      dadosParams.append(key, value.trim());
+    }
 
-  btn.disabled = true;
-  btn.textContent = "Enviando...";
-  status.textContent = "Aguarde...";
-  status.style.color = "#ffd43b";
+    const url = "https://script.google.com/macros/s/AKfycbxK26SFr3VtspIq4n8u7Yv84ppAN1pqGEOBWuDvdszPgDESrj5ZKpmPGAil7NEdiduvEg/exec";
 
-  // 1. Prepara os dados para o formato URLSearchParams (solução CORS)
-  const formData = new FormData(e.target);
-  const dadosParams = new URLSearchParams();
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: dadosParams,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+      });
 
-  // Converte FormData em URLSearchParams
-  for (const [key, value] of formData.entries()) {
-    dadosParams.append(key, value.trim());
-  }
+      if (response.ok) {
+        status.textContent = "Orçamento enviado com sucesso! Entraremos em contato em breve.";
+        status.style.color = "#00d4aa";
+        e.target.reset();
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      status.textContent = "Ocorreu um erro. Tente novamente ou nos chame no WhatsApp.";
+      status.style.color = "#ff6b6b";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Enviar Orçamento";
+    }
+  });
+</script>
 
-  // 2. URL do seu Google Apps Script (COLE AQUI O NOVO URL DE IMPLEMENTAÇÃO)
-  const url = "
+</body>
+</html>
