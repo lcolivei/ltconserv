@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -101,17 +100,16 @@ document.getElementById("formOrcamento").addEventListener("submit", async functi
   status.textContent = "Aguarde...";
   status.style.color = "#ffd43b";
 
-  // 1. Prepara os dados para o formato URLSearchParams (evita CORS)
+  // 1. Prepara os dados para o formato URLSearchParams (solução CORS)
   const formData = new FormData(e.target);
   const dadosParams = new URLSearchParams();
 
-  // Converte FormData em URLSearchParams para o Apps Script
+  // Converte FormData em URLSearchParams
   for (const [key, value] of formData.entries()) {
-    // Usa trim() apenas para garantir que não há espaços indesejados
     dadosParams.append(key, value.trim());
   }
 
-  // 2. URL do seu Google Apps Script (Endpoint)
+  // 2. URL do seu Google Apps Script (COLE AQUI O NOVO URL DE IMPLEMENTAÇÃO)
   const url = "https://script.google.com/macros/s/AKfycbxK26SFr3VtspIq4n8u7Yv84ppAN1pqGEOBWuDvdszPgDESrj5ZKpmPGAil7NEdiduvEg/exec";
 
   try {
@@ -121,13 +119,12 @@ document.getElementById("formOrcamento").addEventListener("submit", async functi
       body: dadosParams
     });
 
-    // Verificação básica de sucesso do fetch
+    // Verificação de sucesso
     if (response.ok) {
       status.style.color = "#00d4aa";
       status.textContent = "Orçamento enviado com sucesso!";
       e.target.reset(); // Limpa o formulário após o sucesso
     } else {
-      // Se a resposta não for 200 OK (mas o fetch completou), ainda mostra erro
       throw new Error("Erro na resposta do servidor (Status: " + response.status + ")");
     }
 
@@ -136,7 +133,7 @@ document.getElementById("formOrcamento").addEventListener("submit", async functi
     status.textContent = `Erro ao enviar. Tente novamente. (${err.message})`;
     console.error("Detalhes do erro:", err);
   } finally {
-    // Executa sempre, independentemente do sucesso ou erro
+    // Reativa o botão e remove o status de envio
     btn.disabled = false;
     btn.textContent = "Enviar Orçamento";
   }
