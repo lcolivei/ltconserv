@@ -258,6 +258,121 @@
     });
   </script>
 
+  <!-- ==================== SEÇÃO CLIENTES ==================== -->
+<section id="clientes" style="padding: 120px 20px; position: relative; overflow: hidden;">
+  <!-- Fundo sutil com gradiente -->
+  <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30,60,114,0.4), rgba(42,82,152,0.3)); pointer-events: none;"></div>
+  
+  <div style="max-width: 1300px; margin: 0 auto; text-align: center; position: relative; animation: fadeInUp 1s ease-out both;">
+    
+    <h2 style="
+      font-size: 3.4rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #00d4aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    ">Nossos Clientes</h2>
+    
+    <p style="font-size: 1.3rem; opacity: 0.92; max-width: 800px; margin: 0 auto 70px;">
+      Orgulhosos por cuidar todos os dias de condomínios residenciais e comerciais em Belo Horizonte e região.
+    </p>
+
+    <!-- GRID DE LOGOS / NOMES DOS CONDOMÍNIOS -->
+    <div style="
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    ">
+      <!-- Cliente 1 -->
+      <div class="cliente-card" style="
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 16px;
+        padding: 30px 20px;
+        transition: all 0.4s ease;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out both;
+      "
+      onmouseover="this.style.transform='translateY(-12px)'; this.style.background='rgba(255,255,255,0.18)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'"
+      onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='none'">
+        <h3 style="font-size: 1.4rem; margin-bottom: 8px; color: #00d4aa;">Residencial Vermont</h3>
+        <p style="opacity: 0.9;">Cidade Nova • 1 torre • 12 unidades</p>
+      </div>
+
+      <!-- Cliente 2 -->
+      <div class="cliente-card" style="animation-delay: 0.15s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.background='rgba(255,255,255,0.18)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='none'">
+        <h3 style="font-size: 1.4rem; margin-bottom: 8px; color: #00d4aa;">Condomínio Saint Dennis</h3>
+        <p style="opacity: 0.9;">Cidade Nova • 1 torre • 12 apartamentos</p>
+      </div>
+
+      <!-- Cliente 3 -->
+      <div class="cliente-card" style="animation-delay: 0.3s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.background='rgba(255,255,255,0.18)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='none'">
+        <h3 style="font-size: 1.4rem; margin-bottom: 8px; color: #00d4aa;">Condominio Maria Angelica</h3>
+        <p style="opacity: 0.9;">Cidade Nova • 1 torre • 6 apartamentos</p>
+      </div>
+
+      <!-- Cliente 4 -->
+      <div class="cliente-card" style="animation-delay: 0.45s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.background='rgba(255,255,255,0.18)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='none'">
+        <h3 style="font-size: 1.4rem; margin-bottom: 8px; color: #00d4aa;">Imobiliaria ViaNova</h3>
+        <p style="opacity: 0.9;">Cidade Nova • Escritorio</p>
+      </div>
+
+      <!-- Cliente 5 -->
+      <div class="cliente-card" style="animation-delay: 0.6s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.background='rgba(255,255,255,0.18)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='none'">
+        <h3 style="font-size: 1.4rem; margin-bottom: 8px; color: #00d4aa;">Condominio Itabaiana</h3>
+        <p style="opacity: 0.9;">Cidade Nova • 1 Torre • 30 apartamentos</p>
+      </div>
+
+     
+
+    <!-- Texto final + botão -->
+    <div style="margin-top: 80px; animation: fadeInUp 1s ease-out 0.9s both;">
+      <p style="font-size: 1.4rem; opacity: 0.9; margin-bottom: 30px;">
+        Venha fazer parte você tambem.
+      </p>
+      <a href="orcamento.html" style="
+        display: inline-block;
+        padding: 16px 40px;
+        background: #00d4aa;
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.2rem;
+        box-shadow: 0 12px 30px rgba(0,212,170,0.4);
+        transition: all 0.3s ease;
+      "
+      onmouseover="this.style.transform='translateY(-5px)'; this.style.background='#00b894'"
+      onmouseout="this.style.transform='none'; this.style.background='#00d4aa'">
+        Faça Parte dos Nossos Clientes
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Animação reutilizada -->
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .cliente-card { 
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 30px 20px;
+    transition: all 0.4s ease;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out both;
+  }
+</style>
+
   <!-- ==================== SEÇÃO CONTATO ==================== -->
 <section id="contato" style="padding: 100px 20px; position: relative;">
   <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
