@@ -1,0 +1,82 @@
+/* Estilos globais para a SECTION do formulário */
+.form-section {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+}
+
+/* Título do formulário */
+.form-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Estrutura do formulário (o grid) */
+.form-grid {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: 15px;
+}
+
+/* Contêiner para cada par de rótulo e campo */
+.form-group {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Estilo dos rótulos (labels) */
+.form-group label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Estilo UNIFORME para campos de entrada, textarea e select */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 12px;
+    border-radius: 8px; /* Lados arredondados */
+    border: none;
+    width: 100%; /* Mesma largura para todos os campos */
+    box-sizing: border-box;
+}
+
+/* Estilo do botão de envio */
+.submit-button {
+    padding: 15px;
+    background: #00d4aa;
+    color: white;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Estilo do botão voltar */
+.back-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+/* Efeitos de hover do botão voltar */
+.back-button:hover {
+    background: rgba(255,255,255,0.35);
+}
+
+/* Estilo da mensagem de status */
+.status-message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
