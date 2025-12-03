@@ -258,5 +258,97 @@
     });
   </script>
 
+  <!-- ==================== SEÇÃO CONTATO ==================== -->
+<section id="contato" style="padding: 100px 20px; position: relative;">
+  <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+    
+    <!-- LADO ESQUERDO - INFORMAÇÕES -->
+    <div style="animation: fadeInUp 1s ease-out 0.3s both;">
+      <h2 style="
+        font-size: 3.2rem;
+        font-weight: 800;
+        background: linear-gradient(to right, #ffffff, #00d4aa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 24px;
+      ">Fale Conosco</h2>
+      
+      <p style="font-size: 1.25rem; opacity: 0.95; line-height: 1.8; margin-bottom: 32px;">
+        Estamos prontos para tirar suas dúvidas e preparar o melhor orçamento para o seu condomínio.
+        <br><strong>Resposta em 24 horas!</strong>
+      </p>
+
+      <div style="space-y: 20px; font-size: 1.1rem;">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 18px; opacity: 0; animation: fadeInUp 0.8s ease-out 0.6s both;">
+          <svg width="28" height="28" fill="#00d4aa" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <div>
+            <strong>Área de Atendimento</strong><br>
+            Belo Horizonte e Região Metropolitana
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 18px; opacity: 0; animation: fadeInUp 0.8s ease-out 0.8s both;">
+          <svg width="28" height="28" fill="#00d4aa" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <div>
+            <strong>Telefone / WhatsApp</strong><br>
+            <a href="https://wa.me/5531994426740" target="_blank" style="color: #00d4aa; font-weight: 600; text-decoration: none;">
+              (31) 99442-6740
+            </a>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 16px; opacity: 0; animation: fadeInUp 0.8s ease-out 1s both;">
+          <svg width="28" height="28" fill="#00d4aa" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <div>
+            <strong>E-mail</strong><br>
+            ltconser@ltconserva.com.br
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão grande para orçamento (opcional) -->
+      <a href="orcamento.html" style="
+        display: inline-block;
+        margin-top: 40px;
+        padding: 16px 36px;
+        background: #00d4aa;
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.2rem;
+        box-shadow: 0 10px 30px rgba(0,212,170,0.4);
+        transition: all 0.3s ease;
+        animation: fadeInUp 1s ease-out 1.2s both;
+      " onmouseover="this.style.transform='translateY(-4px)'; this.style.background='#00b894'"
+        onmouseout="this.style.transform='none'; this.style.background='#00d4aa'">
+        Solicitar Orçamento Sem Compromisso
+      </a>
+    </div>
+
+    <!-- LADO DIREITO - MAPA DO GOOGLE -->
+    <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); animation: fadeInUp 1s ease-out 0.5s both;">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.632951030085!2d-43.939887685387!3d-19.920729986613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e9f7b7f7e1%3A0x4e9f8d8f8e9f8d8f!2sBelo%20Horizonte%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1700000000000" 
+        width="100%" 
+        height="480" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Animação sutil (já usada no hero também) -->
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
 </body>
 </html>
