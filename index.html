@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -23,6 +22,7 @@
     
     body {
       font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: var(--text);
       min-height: 100vh;
       position: relative;
@@ -37,7 +37,7 @@
       align-items: center;
       justify-content: space-between;
       backdrop-filter: blur(12px);
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.08);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       z-index: 1000;
       transition: all 0.4s ease;
@@ -45,19 +45,20 @@
 
     header.scrolled {
       padding: 15px 40px;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(30, 60, 114, 0.9);
     }
 
-    .logo img { height: 54px; border-radius: 10px; }
+    .logo img { height: 52px; border-radius: 8px; }
 
-    nav.menu { display: flex; gap: 38px; }
+    nav.menu { display: flex; gap: 35px; }
 
     nav.menu a {
       color: white;
       text-decoration: none;
       font-weight: 500;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       position: relative;
+      transition: color 0.3s ease;
     }
 
     nav.menu a::after {
@@ -74,27 +75,28 @@
     nav.menu a:hover { color: var(--accent); }
 
     .button-cta {
-      padding: 12px 30px;
+      padding: 12px 28px;
       background: var(--accent);
       color: white;
       text-decoration: none;
       border-radius: var(--radius);
       font-weight: 600;
-      box-shadow: 0 8px 20px rgba(0, 212, 170, 0.4);
+      box-shadow: 0 8px 20px rgba(0, 212, 170, 0.3);
       transition: all 0.3s ease;
     }
 
     .button-cta:hover {
       background: var(--accent-hover);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0, 212, 170, 0.4);
     }
 
-    /* ==================== HERO COM IMAGEM DE FUNDO ==================== */
+    /* ==================== HERO COM IMAGEM ==================== */
     .hero {
       height: 100vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-                  url('https://images.unsplash.com/photo-1581093458791-9d6c02b8d64e?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center center / cover no-repeat;
-      background-attachment: fixed; /* Efeito parallax */
+      background: linear-gradient(135deg, var(--primary), var(--primary-light)),
+                  url('https://images.unsplash.com/photo-1581093458791-9d6c02b8d64e?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') 
+                  center center / cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -102,54 +104,47 @@
       position: relative;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(30, 60, 114, 0.4);
-    }
-
     .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 960px;
+      max-width: 900px;
       padding: 20px;
+      animation: fadeUp 1s ease-out;
     }
 
     .hero h1 {
-      font-size: 5rem;
+      font-size: 4.8rem;
       font-weight: 800;
       margin-bottom: 24px;
-      line-height: 1.1;
       background: linear-gradient(to right, #ffffff, #00d4aa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     .hero p {
-      font-size: 1.55rem;
-      font-weight: 400;
-      max-width: 800px;
-      margin: 0 auto 40px;
+      font-size: 1.5rem;
+      opacity: 0.95;
       line-height: 1.7;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ==================== BOTÃO WHATSAPP FLUTUANTE ==================== */
     .whatsapp-float {
       position: fixed;
-      width: 64px;
-      height: 64px;
-      bottom: 28px;
-      right: 28px;
+      width: 62px;
+      height: 62px;
+      bottom: 25px;
+      right: 25px;
       background: #25d366;
       color: white;
       border-radius: 50%;
-      text-align: center;
-      font-size: 36px;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      font-size: 34px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
       z-index: 999;
       transition: all 0.3s ease;
       display: flex;
@@ -160,37 +155,34 @@
     }
 
     .whatsapp-float:hover {
-      transform: scale(1.15);
+      transform: scale(1.1);
       background: #128C7E;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-      70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
     /* Responsivo */
     @media (max-width: 968px) {
-      .hero h1 { font-size: 3.8rem; }
-      .hero p { font-size: 1.35rem; }
-      header { padding: 15px 20px; gap: 20px; flex-wrap: wrap; justify-content: center; }
+      header { padding: 15px 20px; gap: 15px; flex-wrap: wrap; justify-content: center; }
+      .hero h1 { font-size: 3.6rem; }
+      .hero p { font-size: 1.3rem; }
     }
 
     @media (max-width: 640px) {
-      .hero {
-        background-attachment: scroll;
-      }
-      .hero h1 { font-size: 2.9rem; }
-      .hero p { font-size: 1.2rem; }
-      .whatsapp-float { width: 56px; height: 56px; font-size: 32px; bottom: 20px; right: 20px; }
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1.15rem; }
+      .whatsapp-float { width: 56px; height: 56px; font-size: 30px; bottom: 18px; right: 18px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header id="header">
     <div class="logo">
       <img src="LT.png" alt="LT Conservação">
@@ -205,17 +197,17 @@
     <a href="orcamento.html" class="button-cta">Solicitar Orçamento</a>
   </header>
 
-  <!-- HERO COM FOTO -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>Limpeza Profissional para Seu Condomínio</h1>
-      <p>Equipe uniformizada • Produtos ecológicos • Supervisão diária<br>Belo Horizonte e região metropolitana</p>
+      <h1>Limpeza Profissional para Condomínios</h1>
+      <p>Equipe treinada, produtos ecológicos e supervisão diária.<br>Belo Horizonte e região metropolitana.</p>
     </div>
   </section>
 
   <!-- BOTÃO WHATSAPP FLUTUANTE -->
-  <a href="https://wa.me/5531987654321" target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 24 24">
+  <!-- TROQUE pelo seu número (ex: 5531987654321) -->
+  <a href="https://wa.me/5531987654321" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="white" viewBox="0 0 24 24">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.265c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
     </svg>
   </a>
