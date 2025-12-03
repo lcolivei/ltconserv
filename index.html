@@ -261,7 +261,7 @@
 
   <!-- ==================== SEÇÃO NOSSOS SERVIÇOS ==================== -->
 <section id="servicos" style="padding: 140px 20px 160px; position: relative; overflow: hidden;">
-  <!-- Fundo gradiente azul exatamente como na imagem que você escolheu -->
+ 
   <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #0d47a1 0%, #1976d2 50%, #42a5f5 100%); opacity: 0.96;"></div>
   <div style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat; opacity: 0.07;"></div>
 
@@ -284,83 +284,91 @@
       Oferecemos uma ampla gama de serviços de limpeza profissional para atender todas as suas necessidades.
     </p>
 
-    <!-- GRID COM 3 CARDS GRANDES -->
-    <div style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    ">
-      
-      <!-- CARD 1 – LIMPEZA EM CONDOMÍNIOS -->
-      <div class="servico-card" style="
-        background: rgba(255,255,255,0.12);
-        backdrop-filter: blur(16px);
-        border-radius: 24px;
-        padding: 50px 30px;
-        border: 1px solid rgba(255,255,255,0.2);
-        transition: all 0.4s ease;
-        animation: fadeInUp 0.9s ease-out 0.5s both;
-      "
-      onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
-      onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
-        
-        <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
-          <!-- Ícone ilustrado de prédio/condomínio -->
-          <svg width="68" viewBox="0 0 24 24" fill="white">
-            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2H9zm0-4H7v-2h2v2zm0-4H7V7h2v2zm4 8H11v-2h2v2zm0-4H11v-2h2v2zm0-4H11V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2z"/>
-          </svg>
-        </div>
-        
-        <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 16px;">Limpeza de Condomínios</h3>
-        <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">
-          Limpeza diária ou periódica de áreas comuns, garagens, elevadores, escadas, salão de festas e fachadas.
-        </p>
-      </div>
+      <!-- GRID COM 3 CARDS GRANDES  -->
+<div style="
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+">
 
-      <!-- CARD 2 – LIMPEZA PÓS-OBRA -->
-      <div class="servico-card" style="animation-delay: 0.7s;"
-      onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
-      onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
-        
-        <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
-          <!-- Ícone ilustrado de obra/construção -->
-          <svg width="72" viewBox="0 0 24 24" fill="white">
-            <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
-          </svg>
-        </div>
-        
-        <h3 style="font-size: 700 1.7rem/1.3 'Inter'; margin-bottom: 16px;">Limpeza Pós-Obra</h3>
-        <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">
-          Remoção de resíduos de obra, limpeza fina de vidros, pisos e acabamentos.
-        </p>
-      </div>
-
-      <!-- CARD 3 – LIMPEZA COMERCIAL E ESPECIALIZADA -->
-      <div class="servico-card" style="animation-delay: 0.9s;"
-      onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
-      onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
-        
-        <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
-          <!-- Ícone ilustrado de empresa/escritório -->
-          <svg width="68" viewBox="0 0 24 24" fill="white">
-            <path d="M20 6h-2V4c0-1.1-.9-2-2-2h-3V0h-2v2H8c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 12H7v-2h2v2zm0-4H7V6h2v2zm4 4h-2v-2h2v2zm0-4h-2V6h2v2zm4 4h-2v-2h2v2zm0-4h-2V6h2v2z"/>
-          </svg>
-        </div>
-        
-        <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 16px;">Limpeza Comercial</h3>
-        <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">
-          Escritórios, clínicas, lojas, escolas e indústrias com cronograma personalizado e equipe especializada.
-        </p>
-      </div>
+  <!-- CARD 1 – LIMPEZA DE CONDOMÍNIOS -->
+  <div class="servico-card" style="
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 50px 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.9s ease-out 0.5s both;
+  "
+  onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
+  onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
+    
+    <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
+      <svg width="68" viewBox="0 0 24 24" fill="white">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2H9zm0-4H7v-2h2v2zm0-4H7V7h2v2zm4 8H11v-2h2v2zm0-4H11v-2h2v2zm0-4H11V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2z"/>
+      </svg>
     </div>
     
-  
-      </a>
-    </div>
+    <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 16px;">Limpeza de Condomínios</h3>
+    <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">
+      Limpeza diária ou periódica de áreas comuns, garagens, elevadores, escadas, salão de festas e fachadas.
+    </p>
   </div>
-</section>
 
+  <!-- CARD 2 – LIMPEZA PÓS-OBRA -->
+  <div class="servico-card" style="
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 50px 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.9s ease-out 0.7s both;
+  "
+  onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
+  onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
+    
+    <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
+      <svg width="72" viewBox="0 0 24 24" fill="white">
+        <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+      </svg>
+    </div>
+    
+    <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 16px;">Limpeza Pós-Obra</h3>
+    <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">
+      Remoção de resíduos de obra, limpeza fina de vidros, pisos e acabamentos.
+    </p>
+  </div>
+
+  <!-- CARD 3 – LIMPEZA COMERCIAL -->
+  <div class="servico-card" style="
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 50px 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.9s ease-out 0.9s both;
+  "
+  onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
+  onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
+    
+    <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
+      <svg width="68" viewBox="0 0 24 24" fill="white">
+        <path d="M20 6h-2V4c0-1.1-.9-2-2-2h-3V0h-2v2H8c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 12H7v-2h2v2zm0-4H7V6h2v2zm4 4h-2v-2h2v2zm0-4h-2V6h2v2zm4 4h-2v-2h2v2zm0-4h-2V6h2v2z"/>
+      </svg>
+    </div>
+    
+    <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 16px;">Limpeza Comercial</h3>
+    <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">
+      Escritórios, clínicas, lojas, escolas e indústrias com cronograma personalizado e equipe especializada.
+    </p>
+  </div>
+
+</div>
+     
 <!-- Animação fadeInUp (já usada nas outras seções) -->
 <style>
   @keyframes fadeInUp {
@@ -484,6 +492,102 @@
   }
 </style>
 
+    <!-- ==================== SEÇÃO SOBRE A EMPRESA ==================== -->
+<section id="sobre" style="padding: 140px 20px; position: relative; background: linear-gradient(135deg, var(--primary), var(--primary-light));">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+
+    <!-- LADO ESQUERDO – TEXTO + DIFERENCIAIS -->
+    <div style="color: white;">
+      <h2 style="
+        font-size: 3.6rem;
+        font-weight: 800;
+        background: linear-gradient(to right, #ffffff, #00d4aa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 28px;
+        animation: fadeInUp 1s ease-out both;
+      ">
+        Há mais de 10 anos deixando condomínios impecáveis em BH
+      </h2>
+
+      <p style="font-size: 1.25rem; line-height: 1.8; opacity: 0.95; margin-bottom: 32px; animation: fadeInUp 1s ease-out 0.3s both;">
+        A <strong>LT Conservação e Limpeza</strong> nasceu com um único objetivo: transformar através de limpeza profissional! 
+        Equipe treinada e supervisão rigorosa.
+      </p>
+
+
+
+      <!-- DIFERENCIAIS COM ÍCONES -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
+        <div style="display: flex; align-items: center; gap: 16px; animation: fadeInUp 1s ease-out 0.7s both;">
+          <div style="width: 56px; height: 56px; background: #00d4aa; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="32" fill="white" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <strong>Supervisão diária</strong><br>
+            <span style="opacity: 0.8;">Encarrega</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 16px; animation: fadeInUp 1s ease-out 0.85s both;">
+          <div style="width: 56px; height: 56px; background: #00d4aa; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="32" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <div>
+            <strong>Produtos ecológicos</strong><br>
+            <span style="opacity: 0.8;">Certificados e seguros para crianças e pets</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 16px; animation: fadeInUp 1s ease-out 1s both;">
+          <div style="width: 56px; height: 56px; background: #00d4aa; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="32" fill="white" viewBox="0 0 24 24"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+          </div>
+          <div>
+            <strong>Equipe uniformizada e treinada</strong><br>
+            <span style="opacity: 0.8;">Capacitação mensal</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 16px; animation: fadeInUp 1s ease-out 1.15s both;">
+          <div style="width: 56px; height: 56px; background: #00d4aa; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="32" fill="white" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+          <div>
+            <strong>+120 colaboradores</strong><br>
+            <span style="opacity: 0.8;">Todos registrados e capacitados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LADO DIREITO – IMAGEM OU ILUSTRAÇÃO -->
+    <div style="text-align: center; animation: fadeInUp 1s ease-out 0.6s both;">
+      <img src="https://images.unsplash.com/photo-1581092160607-36a757a6cc70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Equipe LT Conservação e Limpeza" 
+           style="
+             width: 100%;
+             max-width: 560px;
+             border-radius: 24px;
+             box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+             border: 4px solid rgba(0,212,170,0.3);
+           ">
+      <p style="margin-top: 20px; font-size: 1.1rem; opacity: 0.9;">
+        Nossa equipe em ação – sempre uniformizada, pontual e comprometida
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Animação reutilizada -->
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(60px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
   <!-- ==================== SEÇÃO CONTATO ==================== -->
 <section id="contato" style="padding: 100px 20px; position: relative;">
   <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
@@ -575,6 +679,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 </style>
+  
 
 </body>
 </html>
