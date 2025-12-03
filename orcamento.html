@@ -8,29 +8,43 @@
   <link rel="stylesheet" href="estilos.css" />
   
     <style>
+    /* Garante que a seção do formulário tenha a largura máxima */
+    section {
+      padding: 40px 20px; 
+      background: linear-gradient(135deg, #1e3c72, #2a5298); 
+      color: white; 
+      text-align: center;
+    }
+    
+    /* Contêiner para cada par de rótulo e campo */
     .form-group {
       text-align: left;
-      display: grid;
-      gap: 5px;
+      display: flex; /* Flexbox para controlar o layout interno */
+      flex-direction: column; /* Rótulo acima do campo */
+      gap: 5px; /* Espaço entre o rótulo e o campo */
     }
+    
+    /* Estilo dos rótulos (labels) */
     .form-group label {
       font-size: 1.1rem;
       font-weight: bold;
     }
+    
+    /* Estilo UNIFORME para todos os campos de entrada, textarea e select */
     .form-group input,
     .form-group textarea,
     .form-group select {
       padding: 12px;
-      border-radius: 8px;
+      border-radius: 8px; /* Lados arredondados */
       border: none;
-      width: 100%; /* Garante que os campos de texto e seleção usem a largura total */
-      box-sizing: border-box;
+      width: 100%; /* Mesma largura para todos os campos */
+      box-sizing: border-box; /* Garante que o padding não aumente a largura total */
     }
   </style>
 </head>
 <body>
 
-<section style="padding: 40px 20px; background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center;">
+<section>
 
   <h2 style="font-size: 2.5rem; margin-bottom: 20px;">
     Solicite seu Orçamento sem Compromisso
@@ -162,35 +176,4 @@ document.getElementById("formOrcamento").addEventListener("submit", async functi
   }
 
   // 2. URL do seu Google Apps Script (COLE AQUI O NOVO URL DE IMPLEMENTAÇÃO)
-  const url = "https://script.google.com/macros/s/AKfycbzExH259Sn996f7ngzajIZLtprMOzcXju9BKtJH5CImAkr8pY06y_CdccfUxaJBCiXOig/exec";
-
-  try {
-    // 3. Envia a requisição POST com o corpo formatado (sem Content-Type: application/json)
-    const response = await fetch(url, {
-      method: "POST",
-      body: dadosParams
-    });
-
-    // Verificação de sucesso
-    if (response.ok) {
-      status.style.color = "#00d4aa";
-      status.textContent = "Orçamento enviado com sucesso!";
-      e.target.reset(); // Limpa o formulário após o sucesso
-    } else {
-      throw new Error("Erro na resposta do servidor (Status: " + response.status + ")");
-    }
-
-  } catch (err) {
-    status.style.color = "#ff6b6b";
-    status.textContent = `Erro ao enviar. Tente novamente. (${err.message})`;
-    console.error("Detalhes do erro:", err);
-  } finally {
-    // Reativa o botão e remove o status de envio
-    btn.disabled = false;
-    btn.textContent = "Enviar Orçamento";
-  }
-});
-</script>
-
-</body>
-</html>
+  const url = "
