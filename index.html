@@ -1,190 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
   <title>LT Conservação e Limpeza | Limpeza de Condomínios em BH</title>
   <link rel="icon" href="LT.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       --primary: #1e3c72;
       --primary-light: #2a5298;
       --accent: #00d4aa;
       --accent-hover: #00b894;
-      --text: #ffffff;
-      --radius: 12px;
-      --shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { width:100%; overflow-x:hidden; }
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: var(--text);
+      color: white;
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
     }
-<!-- ==================== HEADER CORRIGIDO (ícone pequeno e perfeito) ==================== -->
-<header id="header">
-  <div class="logo">
-    <img src="LT.png" alt="LT Conservação">
-  </div>
 
-  <!-- MENU DESKTOP -->
-  <nav class="menu-desktop">
-    <a href="#home">Home</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#clientes">Clientes</a>
-    <a href="#contato">Contato</a>
-  </nav>
-  <a href="orcamento.html" class="button-cta desktop-cta">Solicitar Orçamento</a>
+    /* ==================== HEADER RESPONSIVO ==================== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 20px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(30,60,114,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+    header.scrolled {
+      padding: 15px 5vw;
+      background: rgba(20,40,90,0.98);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .logo img { height: 48px; border-radius: 8px; }
 
-  <!-- BOTÃO HAMBÚRGUER PEQUENO E BONITO -->
-  <button class="hamburger" aria-label="Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</header>
+    /* MENU DESKTOP */
+    .menu-desktop {
+      display: flex;
+      gap: clamp(20px, 4vw, 40px);
+    }
+    .menu-desktop a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.3s;
+    }
+    .menu-desktop a:hover { color: var(--accent); }
 
-<!-- MENU MOBILE (continua igual) -->
-<div class="mobile-menu">
-  <a href="#home">Home</a>
-  <a href="#sobre">Sobre</a>
-  <a href="#servicos">Serviços</a>
-  <a href="#clientes">Clientes</a>
-  <a href="#contato">Contato</a>
-  <a href="orcamento.html" class="button-cta">Solicitar Orçamento</a>
-</div>
-  
-/* MENU DESKTOP */
-.menu-desktop {
-  display: flex;
-  gap: clamp(20px, 4vw, 40px);
-}
-.menu-desktop a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: clamp(1rem, 2.5vw, 1.1rem);
-  position: relative;
-}
-.menu-desktop a::after {
-  content: '';
-  position: absolute;
-  width: 0; height: 2px;
-  bottom: -8px; left: 50%;
-  background: var(--accent);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-.menu-desktop a:hover::after { width: 100%; }
-.menu-desktop a:hover { color: var(--accent); }
+    .button-cta {
+      padding: 12px 28px;
+      background: var(--accent);
+      color: white;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .button-cta:hover {
+      background: var(--accent-hover);
+      transform: translateY(-3px);
+    }
+    .desktop-cta { display: block; }
 
-.desktop-cta { display: block; }
+    /* HAMBÚRGUER PEQUENO E BONITO */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: white;
+      margin: 3px auto;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
 
-/* BOTÃO HAMBÚRGUER – TAMANHO PERFEITO */
-.hamburger {
-  display: none;
-  width: 44px;
-  height: 44px;
-  padding: 10px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  cursor: pointer;
-  z-index: 1001;
-  transition: all 0.3s ease;
-}
+    /* MENU MOBILE */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      font-size: 2rem;
+      font-weight: 600;
+      transform: translateY(-100%);
+      transition: transform 0.5s ease;
+      z-index: 999;
+    }
+    .mobile-menu.active { transform: translateY(0); }
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeUp 0.6s forwards;
+    }
+    .mobile-menu a:nth-child(1) { animation-delay: 0.1s; }
+    .mobile-menu a:nth-child(2) { animation-delay: 0.2s; }
+    .mobile-menu a:nth-child(3) { animation-delay: 0.3s; }
+    .mobile-menu a:nth-child(4) { animation-delay: 0.4s; }
+    .mobile-menu a:nth-child(5) { animation-delay: 0.5s; }
+    .mobile-menu .button-cta {
+      padding: 18px 50px;
+      font-size: 1.6rem;
+      animation-delay: 0.7s;
+    }
 
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  margin: 4px auto;
-  background: white;
-  border-radius: 2px;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Animação do X quando abre */
-.hamburger.active span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
+    /* ATIVA NO CELULAR */
+    @media (max-width: 968px) {
+      .menu-desktop, .desktop-cta { display: none; }
+      .hamburger { display: flex; }
+      header { padding: 18px 20px; }
+    }
 
-/* Mostra só no celular */
-@media (max-width: 968px) {
-  .hamburger { display: block; }
-  .menu-desktop, .desktop-cta { display: none; }
-}
-
-/* MENU MOBILE */
-.mobile-menu {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  font-size: 2rem;
-  transform: translateY(-100%);
-  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-  z-index: 999;
-}
-.mobile-menu.active { transform: translateY(0); }
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.6s forwards;
-}
-.mobile-menu a:nth-child(1) { animation-delay: 0.1s; }
-.mobile-menu a:nth-child(2) { animation-delay: 0.2s; }
-.mobile-menu a:nth-child(3) { animation-delay: 0.3s; }
-.mobile-menu a:nth-child(4) { animation-delay: 0.4s; }
-.mobile-menu a:nth-child(5) { animation-delay: 0.5s; }
-.mobile-menu .mobile-cta {
-  display: inline-block;
-  padding: 18px 50px;
-  background: var(--accent);
-  border-radius: 16px;
-  font-size: 1.5rem;
-  animation-delay: 0.7s;
-}
-
-/* RESPONSIVO – ATIVA HAMBÚRGUER NO CELULAR */
-@media (max-width: 968px) {
-  .menu-desktop, .desktop-cta { display: none; }
-  .hamburger { display: flex; }
-}
-
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-    /* ==================== HERO COM ANIMAÇÃO + ZOOM SUAVE ==================== */
+    /* ==================== HERO ==================== */
     .hero {
       height: 100vh;
-      background: linear-gradient(135deg, rgba(30,60,114,0.8), rgba(42,82,152,0.7)),
-                  url('Inicio.jpg') 
-                  center center / cover no-repeat;
+      min-height: 580px;
+      background: linear-gradient(135deg, rgba(30,60,114,0.85), rgba(42,82,152,0.75)),
+                  url('Inicio.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -192,120 +156,96 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background: radial-gradient(circle at center, rgba(0,212,170,0.08), transparent 70%);
       animation: zoomIn 20s ease-in-out infinite alternate;
     }
-
     .hero-content {
       max-width: 960px;
       padding: 20px;
       z-index: 2;
+      text-align: center;
     }
-
     .hero h1 {
-      font-size: 5rem;
+      font-size: clamp(2.8rem, 8vw, 5rem);
       font-weight: 800;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       background: linear-gradient(to right, #ffffff, #00d4aa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      opacity: 0;
-      animation: fadeInUp 1s ease-out 0.6s both;
     }
-
     .hero p {
-      font-size: 1.55rem;
-      opacity: 0;
-      line-height: 1.8;
-      max-width: 800px;
-      margin: 0 auto;
-      animation: fadeInUp 1s ease-out 0.9s both;
+      font-size: clamp(1.2rem, 4vw, 1.6rem);
+      opacity: 0.95;
+      line-height: 1.7;
     }
-
-    /* Animações */
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     @keyframes zoomIn {
       from { transform: scale(1); }
       to { transform: scale(1.1); }
     }
 
-    /* ==================== WHATSAPP FLUTUANTE COM PULSO ==================== */
+    /* ==================== WHATSAPP FLUTUANTE ==================== */
     .whatsapp-float {
       position: fixed;
-      width: 64px;
-      height: 64px;
-      bottom: 28px;
-      right: 28px;
+      width: 64px; height: 64px;
+      bottom: 28px; right: 28px;
       background: #25d366;
-      color: white;
       border-radius: 50%;
-      font-size: 36px;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-      z-index: 999;
-      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+      z-index: 998;
       animation: float 6s ease-in-out infinite;
     }
-
-    .whatsapp-float:hover {
-      transform: translateY(-8px) scale(1.15);
-      background: #128C7E;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    /* Responsivo */
-    @media (max-width: 968px) {
-      .hero h1 { font-size: 3.8rem; }
-      .hero p { font-size: 1.35rem; }
-      header { padding: 18px 20px; }
-    }
-
+    .whatsapp-float:hover { transform: translateY(-8px) scale(1.15); }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
     @media (max-width: 640px) {
-      .hero h1 { font-size: 2.9rem; }
-      .hero p { font-size: 1.2rem; }
-      .whatsapp-float { width: 56px; height: 56px; font-size: 32px; bottom: 20px; right: 20px; }
+      .whatsapp-float { width:56px; height:56px; bottom:20px; right:20px; }
+    }
+
+    /* ==================== ANIMAÇÃO GERAL ==================== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px); }
+      }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-
 <body>
 
+  <!-- HEADER -->
   <header id="header">
     <div class="logo">
-      <img src="LT.png" alt="LT Conservação">
+      <a href="#home"><img src="LT.png" alt="LT Conservação"></a>
     </div>
-    <nav class="menu">
+    <nav class="menu-desktop">
       <a href="#home">Home</a>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#clientes">Clientes</a>
       <a href="#contato">Contato</a>
     </nav>
-    <a href="orcamento.html" class="button-cta">Solicitar Orçamento</a>
+    <a href="orcamento.html" class="button-cta desktop-cta">Solicitar Orçamento</a>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#contato">Contato</a>
+    <a href="orcamento.html" class="button-cta">Solicitar Orçamento</a>
+  </div>
+
+  <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-content">
       <h1>Limpeza Profissional para Condomínios</h1>
@@ -313,19 +253,125 @@
     </div>
   </section>
 
-  <!-- WhatsApp Flutuante -->
-  <a href="https://wa.me/5531994426740" target="_blank" class="whatsapp-float" aria-label="Fale no WhatsApp">
+  <!-- SERVIÇOS -->
+  <section id="servicos" style="padding: 140px 20px 160px; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #0d47a1 0%, #1976d2 50%, #42a5f5 100%); opacity: 0.96;"></div>
+    <div style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat; opacity: 0.07;"></div>
+    <div style="max-width: 1300px; margin: 0 auto; text-align: center; position: relative; color: white;">
+      <h2 style="font-size: 3.8rem; font-weight: 800; margin-bottom: 20px; animation: fadeInUp 1s ease-out both;">Nossos Serviços</h2>
+      <p style="font-size: 1.4rem; opacity: 0.95; max-width: 700px; margin: 0 auto 80px; animation: fadeInUp 1s ease-out 0.3s both;">
+        Oferecemos uma ampla gama de serviços de limpeza profissional para atender todas as suas necessidades.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; margin-top: 40px;">
+        <!-- CARD 1 -->
+        <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(16px); border-radius: 24px; padding: 50px 30px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.4s ease; animation: fadeInUp 0.9s ease-out 0.5s both;"
+             onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
+             onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
+          <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
+            <svg width="68" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2H9zm0-4H7v-2h2v2zm0-4H7V7h2v2zm4 8H11v-2h2v2zm0-4H11v-2h2v2zm0-4H11V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+          </div>
+          <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 16px;">Limpeza de Condomínios</h3>
+          <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">Limpeza diária ou periódica de áreas comuns, garagens, elevadores, escadas, salão de festas e fachadas.</p>
+        </div>
+        <!-- CARD 2 -->
+        <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(16px); border-radius: 24px; padding: 50px 30px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.4s ease; animation: fadeInUp 0.9s ease-out 0.7s both;"
+             onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
+             onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
+          <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
+            <svg width="72" viewBox="0 0 24 24" fill="white"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+          </div>
+          <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 16px;">Limpeza Pós-Obra</h3>
+          <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">Remoção completa de entulho, resíduos de obra, limpeza fina de vidros, pisos e acabamentos.</p>
+        </div>
+        <!-- CARD 3 -->
+        <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(16px); border-radius: 24px; padding: 50px 30px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.4s ease; animation: fadeInUp 0.9s ease-out 0.9s both;"
+             onmouseover="this.style.transform='translateY(-20px)'; this.style.background='rgba(255,255,255,0.22)'; this.style.boxShadow='0 30px 60px rgba(0,0,0,0.3)'"
+             onmouseout="this.style.transform='none'; this.style.background='rgba(255,255,255,0.12)'; this.style.boxShadow='none'">
+          <div style="width: 110px; height: 110px; margin: 0 auto 30px; background: #00d4aa; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,212,170,0.3);">
+            <svg width="68" viewBox="0 0 24 24" fill="white"><path d="M20 6h-2V4c0-1.1-.9-2-2-2h-3V0h-2v2H8c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 12H7v-2h2v2zm0-4H7V6h2v2zm4 4h-2v-2h2v2zm0-4h-2V6h2v2zm4 4h-2v-2h2v2zm0-4h-2V6h2v2z"/></svg>
+          </div>
+          <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 16px;">Limpeza Comercial</h3>
+          <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7;">Escritórios, clínicas, lojas, escolas e indústrias com cronograma personalizado e equipe especializada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" style="padding: 140px 20px; background: linear-gradient(135deg, var(--primary), var(--primary-light));">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+      <div>
+        <h2 style="font-size: 3.6rem; font-weight: 800; background: linear-gradient(to right, #ffffff, #00d4aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 28px; animation: fadeInUp 1s both;">
+          Há mais de 10 anos deixando condomínios impecáveis em BH
+        </h2>
+        <p style="font-size: 1.25rem; line-height: 1.8; opacity: 0.95; margin-bottom: 32px; animation: fadeInUp 1s 0.3s both;">
+          A <strong>LT Conservação e Limpeza</strong> nasceu com um único objetivo: transformar através de limpeza profissional, equipe treinada e supervisão rigorosa.
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px; animation: fadeInUp 1s 0.7s both;">
+            <div style="width: 56px; height: 56px; background: #00d4aa; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+              <svg width="32" fill="white" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div><strong>Supervisão diária</strong><br><span style="opacity:0.8">Encarregado presente</span></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; animation: fadeInUp 1s 0.85s both;">
+            <div style="width: 56px; height: 56px; background: #00d4aa; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+              <svg width="32" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <div><strong>Produtos ecológicos</strong><br><span style="opacity:0.8">Seguros para crianças e pets</span></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; animation: fadeInUp 1s 1s both;">
+            <div style="width: 56px; height: 56px; background: #00d4aa; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+              <svg width="32" fill="white" viewBox="0 0 24 24"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            </div>
+            <div><strong>Equipe uniformizada</strong><br><span style="opacity:0.8">Capacitação mensal</span></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; animation: fadeInUp 1s 1.15s both;">
+            <div style="width: 56px; height: 56px; background: #00d4aa; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+              <svg width="32" fill="white" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+            <div><strong>+120 colaboradores</strong><br><span style="opacity:0.8">Todos registrados</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; animation: fadeInUp 1s 0.6s both;">
+        <img src="LT.jpeg" alt="Equipe LT" style="width: 100%; max-width: 560px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 4px solid rgba(0,212,170,0.3);">
+        <p style="margin-top: 20px; opacity: 0.9;">Trabalho e Limpeza</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5531994426740" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 24 24">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.265c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
     </svg>
   </a>
 
+  <!-- SCRIPT FINAL -->
   <script>
-    // Header com sombra ao rolar
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+
     window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 80);
+      document.getElementById('header').classList.toggle('scrolled', scrollY > 80);
     });
   </script>
+</body>
+</html>
 
 
   <!-- ==================== SEÇÃO NOSSOS SERVIÇOS ==================== -->
