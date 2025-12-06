@@ -178,8 +178,7 @@ header.scrolled {
 
 /* HERO */
 .hero {
-  height: 100vh;
-  min-height: 580px;
+  min-height: 100svh; /* svh = viewport estável → perfeito no mobile */
   background: linear-gradient(135deg, rgba(30,60,114,0.85), rgba(42,82,152,0.75)),
               url('Inicio.jpg') center/cover no-repeat;
   display: flex;
@@ -188,7 +187,9 @@ header.scrolled {
   text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 120px 20px 60px; /* evita que o header fixe sobreponha */
 }
+
 
 .hero::before {
   content: '';
@@ -539,3 +540,10 @@ img, iframe, video {
   max-width: 100%;
   display: block;
 }
+
+@media(max-width: 768px) {
+  .hero {
+    padding-top: 160px; /* header fixo fica maior no mobile */
+  }
+}
+
