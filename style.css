@@ -312,6 +312,10 @@ header.scrolled {
 }
 
 /* SOBRE */
+.sobre {
+    text-align: center;
+}
+
 .section-sobre {
   padding: 120px 20px;
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
