@@ -325,12 +325,12 @@ header.scrolled {
 
 .grid-about {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Permite encolhimento total */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Permite encolhimento total e evita overflow */
   gap: 80px;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  justify-content: center; /* Centraliza o grid inteiro no desktop */
+  justify-content: center; /* Centraliza o grid inteiro */
 }
 
 .about-text h2 {
@@ -364,21 +364,25 @@ header.scrolled {
   justify-content: center;
 }
 
+/* VÍDEO - REGRAS INFALÍVEIS CONTRA OVERFLOW */
 .about-image {
   width: 100%;
   overflow: hidden;
+  border-radius: 24px;
+  contain: content;
 }
 
 .about-image video {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-width: 0 !important;
   display: block;
   border-radius: 24px;
   box-shadow: 0 30px 60px rgba(0,0,0,0.4);
   border: 4px solid rgba(0,212,170,0.3);
-  min-width: 0;
-  object-fit: contain; /* Mostra o vídeo inteiro; troque por cover se preferir crop */
+  object-fit: contain; /* contain = mostra inteiro; use cover se quiser crop */
+  background: #000;
 }
 
 /* CLIENTES */
@@ -516,12 +520,13 @@ h2, .subtitle, .card, .feature, .cliente-card, .contato-item, .button-cta {
 /* RESPONSIVO GERAL */
 section { scroll-margin-top: 100px; }
 
-/* FIXES MOBILE */
+/* PREVENÇÃO GERAL DE OVERFLOW */
 img, iframe, video {
   max-width: 100%;
   display: block;
 }
 
+/* MOBILE - FIXES IMPORTANTES */
 @media (max-width: 768px) {
   .grid-about,
   .grid-contato {
@@ -564,16 +569,15 @@ img, iframe, video {
     padding-top: 160px;
   }
 
-  /* Reforço específico para o vídeo no mobile */
+  /* REFORÇO ABSOLUTO NO VÍDEO MOBILE */
   .about-image {
     overflow: hidden;
   }
 
   .about-image video {
     width: 100% !important;
-    max-width: 100% !important;
     height: auto !important;
     min-width: 0 !important;
-    object-fit: contain;
+    object-fit: contain !important;
   }
 }
