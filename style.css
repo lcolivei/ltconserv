@@ -5,21 +5,25 @@
   --accent: #00d4aa;
   --accent-hover: #00b894;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html, body {
   width: 100%;
   overflow-x: hidden !important; /* Evita qualquer rolagem lateral */
 }
+
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: white;
   min-height: 100vh;
 }
+
 /* HEADER */
 header {
   position: fixed;
@@ -36,19 +40,23 @@ header {
   z-index: 1000;
   transition: all .4s;
 }
+
 header.scrolled {
   padding: 15px 5vw;
   background: rgba(20,40,90,0.98);
   box-shadow: 0 8px 30px rgba(0,0,0,0.4);
 }
+
 .logo img {
   height: 48px;
   border-radius: 8px;
 }
+
 .menu-desktop {
   display: flex;
   gap: clamp(20px, 4vw, 40px);
 }
+
 .menu-desktop a {
   color: white;
   text-decoration: none;
@@ -56,9 +64,11 @@ header.scrolled {
   font-size: 1.05rem;
   transition: color .3s;
 }
+
 .menu-desktop a:hover {
   color: var(--accent);
 }
+
 .button-cta {
   padding: 12px 28px;
   background: var(--accent);
@@ -68,17 +78,21 @@ header.scrolled {
   text-decoration: none;
   transition: all .3s;
 }
+
 .button-cta:hover {
   background: var(--accent-hover);
   transform: translateY(-3px);
 }
+
 .button-cta.large {
   padding: 16px 40px;
   font-size: 1.2rem;
 }
+
 .desktop-cta {
   display: block;
 }
+
 /* HAMBURGER */
 .hamburger {
   display: none;
@@ -92,6 +106,7 @@ header.scrolled {
   cursor: pointer;
   padding: 8px;
 }
+
 .hamburger span {
   width: 22px;
   height: 2px;
@@ -100,15 +115,19 @@ header.scrolled {
   border-radius: 2px;
   transition: .4s;
 }
+
 .hamburger.active span:nth-child(1) {
   transform: translateY(5px) rotate(45deg);
 }
+
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.active span:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
 }
+
 /* MENU MOBILE */
 .mobile-menu {
   position: fixed;
@@ -125,35 +144,41 @@ header.scrolled {
   transition: transform .5s;
   z-index: 999;
 }
+
 .mobile-menu.active {
   transform: translateY(0);
 }
+
 .mobile-menu a {
   color: white;
   text-decoration: none;
   opacity: 0;
   animation: fadeUp .6s forwards;
 }
+
 .mobile-menu .button-cta {
   padding: 18px 50px;
   font-size: 1.6rem;
   animation-delay: .7s;
 }
+
 @keyframes fadeUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 /* RESPONSIVO HEADER */
-@media(max-width: 968px) {
+@media (max-width: 968px) {
   .menu-desktop, .desktop-cta { display: none; }
   .hamburger { display: flex; }
   header { padding: 16px 20px; }
 }
+
 /* HERO */
 .hero {
-  min-height: 100svh; /* svh = viewport estável → perfeito no mobile */
+  min-height: 100svh;
   background: linear-gradient(135deg, rgba(30,60,114,0.85), rgba(42,82,152,0.75)),
               url('Inicio.jpg') center/cover no-repeat;
   display: flex;
@@ -162,8 +187,9 @@ header.scrolled {
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding: 120px 20px 60px; /* evita que o header fixe sobreponha */
+  padding: 120px 20px 60px;
 }
+
 .hero::before {
   content: '';
   position: absolute;
@@ -171,11 +197,13 @@ header.scrolled {
   background: radial-gradient(circle at center, rgba(0,212,170,0.08), transparent 70%);
   animation: zoomIn 20s ease-in-out infinite alternate;
 }
+
 .hero-content {
   max-width: 960px;
   padding: 20px;
   z-index: 2;
 }
+
 .hero h1 {
   font-size: clamp(2.8rem, 8vw, 5rem);
   font-weight: 800;
@@ -184,25 +212,26 @@ header.scrolled {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .hero p {
   font-size: clamp(1.2rem, 4vw, 1.6rem);
   opacity: .95;
   line-height: 1.7;
 }
+
 @keyframes zoomIn {
   from { transform: scale(1); }
   to { transform: scale(1.1); }
 }
+
 /* SEÇÕES */
 .container {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
-  /* text-align: center; removido para não interferir em grids de duas colunas */
 }
 
-/* Centralização seletiva de textos */
 .container > h2,
 .subtitle,
 .hero-content,
@@ -218,18 +247,21 @@ header.scrolled {
   max-width: 700px;
   margin: 0 auto 80px;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
   margin-top: 40px;
 }
+
 /* SERVIÇOS */
 .section-servicos {
   padding: 120px 20px 140px;
   position: relative;
   overflow: hidden;
 }
+
 .section-servicos::before {
   content: '';
   position: absolute;
@@ -237,14 +269,15 @@ header.scrolled {
   background: linear-gradient(135deg, #0d47a1, #1976d2 50%, #42a5f5);
   opacity: .96;
 }
+
 .section-servicos::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&q=80')
-              center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
   opacity: .07;
 }
+
 .card {
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(16px);
@@ -253,11 +286,13 @@ header.scrolled {
   border: 1px solid rgba(255,255,255,0.2);
   transition: all .4s;
 }
+
 .card:hover {
   transform: translateY(-20px);
   background: rgba(255,255,255,0.22);
   box-shadow: 0 30px 60px rgba(0,0,0,0.3);
 }
+
 .icon-circle {
   width: 110px;
   height: 110px;
@@ -269,20 +304,20 @@ header.scrolled {
   justify-content: center;
   box-shadow: 0 10px 30px rgba(0,212,170,0.3);
 }
+
 .card h3 {
   font-size: 1.7rem;
   font-weight: 700;
   margin-bottom: 16px;
 }
+
 .card p {
   font-size: 1.1rem;
   opacity: .9;
   line-height: 1.7;
 }
+
 /* SOBRE */
-.sobre {
-    text-align: center;
-}
 .section-sobre {
   padding: 120px 20px;
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
@@ -290,12 +325,12 @@ header.scrolled {
 
 .grid-about {
   display: grid;
-  grid-template-columns: repeat(2, max-content);  /* Ou minmax(300px, auto) se quiser um mínimo */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Permite encolhimento total */
   gap: 80px;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  justify-content: center;  /* <--- Isso centraliza o grid inteiro */
+  justify-content: center; /* Centraliza o grid inteiro no desktop */
 }
 
 .about-text h2 {
@@ -306,16 +341,19 @@ header.scrolled {
   -webkit-text-fill-color: transparent;
   margin-bottom: 28px;
 }
+
 .features {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
+
 .feature {
   display: flex;
   align-items: center;
   gap: 16px;
 }
+
 .icon-check {
   width: 56px;
   height: 56px;
@@ -326,6 +364,10 @@ header.scrolled {
   justify-content: center;
 }
 
+.about-image {
+  width: 100%;
+  overflow: hidden;
+}
 
 .about-image video {
   width: 100%;
@@ -335,10 +377,8 @@ header.scrolled {
   border-radius: 24px;
   box-shadow: 0 30px 60px rgba(0,0,0,0.4);
   border: 4px solid rgba(0,212,170,0.3);
-  
-  /* ← Estas duas linhas são cruciais para forçar o encolhimento */
   min-width: 0;
-  object-fit: contain;  /* ou 'cover' se quiser que preencha cortando as bordas */
+  object-fit: contain; /* Mostra o vídeo inteiro; troque por cover se preferir crop */
 }
 
 /* CLIENTES */
@@ -347,12 +387,14 @@ header.scrolled {
   position: relative;
   overflow: hidden;
 }
+
 .section-clientes::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(30,60,114,0.4), rgba(42,82,152,0.3));
 }
+
 .grid-clientes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -360,6 +402,7 @@ header.scrolled {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .cliente-card {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(12px);
@@ -368,23 +411,28 @@ header.scrolled {
   padding: 30px 20px;
   transition: all .4s;
 }
+
 .cliente-card:hover {
   transform: translateY(-12px);
   background: rgba(255,255,255,0.18);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
+
 .cliente-card h3 {
   font-size: 1.4rem;
   margin-bottom: 8px;
   color: var(--accent);
 }
+
 .clientes-cta {
   margin-top: 80px;
 }
+
 /* CONTATO */
 .section-contato {
   padding: 100px 20px;
 }
+
 .grid-contato {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -393,6 +441,7 @@ header.scrolled {
   max-width: 1100px;
   margin: 0 auto;
 }
+
 .contato-info h2 {
   font-size: 3.2rem;
   font-weight: 800;
@@ -401,17 +450,20 @@ header.scrolled {
   -webkit-text-fill-color: transparent;
   margin-bottom: 24px;
 }
+
 .contato-item {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 18px;
 }
+
 .mapa {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
+
 /* WHATSAPP */
 .whatsapp-float {
   position: fixed;
@@ -429,14 +481,17 @@ header.scrolled {
   animation: float 6s ease-in-out infinite;
   transition: all .3s;
 }
+
 .whatsapp-float:hover {
   transform: translateY(-8px) scale(1.15);
 }
+
 @keyframes float {
-  0%,100% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
-@media(max-width: 640px) {
+
+@media (max-width: 640px) {
   .whatsapp-float {
     width: 56px;
     height: 56px;
@@ -444,74 +499,81 @@ header.scrolled {
     right: 20px;
   }
 }
+
 /* ANIMAÇÕES */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(50px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 h2, .subtitle, .card, .feature, .cliente-card, .contato-item, .button-cta {
   animation: fadeInUp 1s ease-out both;
 }
+
 .card:nth-child(2) { animation-delay: .2s; }
 .card:nth-child(3) { animation-delay: .4s; }
+
 /* RESPONSIVO GERAL */
 section { scroll-margin-top: 100px; }
-/* FIXES IMPORTANTES MOBILE */
-@media (max-width: 768px) {
-  .grid-about,
-  .grid-contato {
-    grid-template-columns: 1fr !important;
-    gap: 40px;
-  }
-  .features {
-    grid-template-columns: 1fr !important;
-  }
-  .about-text h2,
-  .contato-info h2 {
-    font-size: 2.4rem;
-  }
-  .section-sobre,
-  .section-servicos,
-  .section-clientes,
-  .section-contato {
-    padding: 80px 20px;
-  }
-  .mapa iframe {
-    height: 300px;
-    width: 100% !important;
-  }
-  .cliente-card {
-    padding: 24px 16px;
-  }
-  .hero {
-    padding-top: 160px; /* header fixo fica maior no mobile */
-  }
-}
-/* EVITA QUE QUALQUER COISA VAZE LATERALMENTE */
+
+/* FIXES MOBILE */
 img, iframe, video {
   max-width: 100%;
   display: block;
 }
 
 @media (max-width: 768px) {
-  .grid-about {
-    grid-template-columns: 1fr !important;
-    gap: 40px;
+  .grid-about,
+  .grid-contato {
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
-  
-  /* Força o container do vídeo a não vazar */
-  .about-image {
-    width: 100%;
+
+  .grid-about > *,
+  .grid-contato > * {
+    min-width: 0;
     max-width: 100%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text h2,
+  .contato-info h2 {
+    font-size: 2.4rem;
+  }
+
+  .section-sobre,
+  .section-servicos,
+  .section-clientes,
+  .section-contato {
+    padding: 80px 20px;
+  }
+
+  .mapa iframe {
+    height: 300px;
+    width: 100% !important;
+  }
+
+  .cliente-card {
+    padding: 24px 16px;
+  }
+
+  .hero {
+    padding-top: 160px;
+  }
+
+  /* Reforço específico para o vídeo no mobile */
+  .about-image {
     overflow: hidden;
   }
-  
+
   .about-image video {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     min-width: 0 !important;
-    object-fit: contain;  /* contain = mostra o vídeo inteiro sem cortar */
-    /* object-fit: cover;  ← use isso se preferir preencher a tela cortando laterais */
+    object-fit: contain;
   }
 }
