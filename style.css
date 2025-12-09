@@ -551,3 +551,25 @@ img, iframe, video {
   }
 }
 
+.container.grid-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* Divide em duas colunas iguais */
+  gap: 40px;  /* Espaço entre texto e imagem (ajuste conforme necessário) */
+  align-items: center;  /* Alinha verticalmente ao centro (opcional, mas fica bonito) */
+}
+
+/* Para telas menores (mobile), empilhar texto em cima e imagem embaixo */
+@media (max-width: 768px) {
+  .container.grid-about {
+    grid-template-columns: 1fr;  /* Uma única coluna */
+  }
+  
+  .about-text {
+    order: 1;  /* Texto primeiro */
+  }
+  
+  .about-image {
+    order: 2;  /* Imagem depois */
+  }
+}
+
