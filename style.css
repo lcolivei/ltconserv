@@ -492,3 +492,26 @@ img, iframe, video {
   max-width: 100%;
   display: block;
 }
+
+@media (max-width: 768px) {
+  .grid-about {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+  
+  /* Força o container do vídeo a não vazar */
+  .about-image {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .about-image video {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    object-fit: contain;  /* contain = mostra o vídeo inteiro sem cortar */
+    /* object-fit: cover;  ← use isso se preferir preencher a tela cortando laterais */
+  }
+}
