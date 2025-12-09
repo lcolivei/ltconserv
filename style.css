@@ -287,14 +287,17 @@ header.scrolled {
   padding: 120px 20px;
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
 }
+
 .grid-about {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, max-content);  /* Ou minmax(300px, auto) se quiser um mínimo */
   gap: 80px;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  justify-content: center;  /* <--- Isso centraliza o grid inteiro */
 }
+
 .about-text h2 {
   font-size: 3.6rem;
   font-weight: 800;
@@ -322,13 +325,22 @@ header.scrolled {
   align-items: center;
   justify-content: center;
 }
+
+
 .about-image video {
   width: 100%;
-  max-width: 560px;
+  max-width: 100%;
+  height: auto;
+  display: block;
   border-radius: 24px;
   box-shadow: 0 30px 60px rgba(0,0,0,0.4);
   border: 4px solid rgba(0,212,170,0.3);
+  
+  /* ← Estas duas linhas são cruciais para forçar o encolhimento */
+  min-width: 0;
+  object-fit: contain;  /* ou 'cover' se quiser que preencha cortando as bordas */
 }
+
 /* CLIENTES */
 .section-clientes {
   padding: 120px 20px;
