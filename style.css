@@ -603,3 +603,7 @@ img, iframe, video {
   background: #000;
 }
 
+#meu-botao-unico {
+    background: #4a90e2 !important; /* O !important garante que ele ignore a cor padrão */
+}
+
