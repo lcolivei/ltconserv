@@ -604,6 +604,9 @@ img, iframe, video {
 }
 
 #meu-botao-unico {
-    background: #4a90e2 !important; /* O !important garante que ele ignore a cor padrão */
+    background: #00a8ff !important; /* Azul vibrante */
+    border-color: rgba(255,255,255,0.2);
 }
+
+
 
