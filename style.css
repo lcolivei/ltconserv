@@ -605,6 +605,16 @@ img, iframe, video {
   background: #000;
 }
 
+/* Altera apenas o botão com este ID para azul */
+#meu-botao-unico {
+    background: #00a8ff !important;
+}
+
+/* Efeito ao passar o mouse apenas para este botão */
+#meu-botao-unico:hover {
+    background: #008ae6 !important;
+}
+
 
 }
 
