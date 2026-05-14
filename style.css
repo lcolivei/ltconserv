@@ -6,6 +6,10 @@
   --accent-hover: #00b894;
 }
 
+#meu-botao-unico {
+    background: #00a8ff !important; /* Azul vibrante */
+    border-color: rgba(255,255,255,0.2);
+
 * {
   margin: 0;
   padding: 0;
@@ -603,9 +607,7 @@ img, iframe, video {
   background: #000;
 }
 
-#meu-botao-unico {
-    background: #00a8ff !important; /* Azul vibrante */
-    border-color: rgba(255,255,255,0.2);
+
 }
 
 
