@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifesto pela Dignidade na Conservação e Limpeza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3c72;
+            --accent: #00d4aa;
+            --text-dark: #2d3436;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #636e72;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "•";
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .quote {
+            font-weight: 700;
+            color: #d63031;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        strong {
+            color: var(--primary);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px dashed #dfe6e9;
+        }
+
+        .slogan {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            word-spacing: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <article class="container">
+        <header>
+            <h1>Manifesto pela Dignidade na Conservação e Limpeza</h1>
+            <p class="intro">
+                Nós somos a base que sustenta a casa, a empresa, a escola, os hospitais e as religiões; 
+                nós mantemos a saúde, a estética e o funcionamento de todos os espaços. Nossa força de 
+                trabalho é essencial, e nossa dignidade é inegociável.
+            </p>
+        </header>
+
+        <section>
+            <h2>I. O Direito à Saúde e à Integridade Física</h2>
+            <span class="quote">Não aceitaremos adoecer em troca do nosso sustento.</span>
+            <ul>
+                <li><strong>Adicional de Insalubridade:</strong> Exigimos o pagamento justo pelo contato com agentes biológicos e químicos. Limpar o que outros descartam exige reconhecimento financeiro e proteção máxima.</li>
+                <li><strong>EPI:</strong> O Equipamento de Proteção Individual não é um favor, é uma obrigação. Luvas, botas e máscaras devem ser de qualidade, gratuitas e substituídas sempre que a segurança for ameaçada.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>II. O Direito ao Tempo e ao Descanso</h2>
+            <span class="quote">Nossa vida não pertence apenas ao trabalho.</span>
+            <ul>
+                <li><strong>Soberania do Repouso:</strong> Seja na escala 12x36 ou na jornada comum, nosso tempo de repouso é sagrado. O intervalo de almoço é um direito à recuperação física e mental, nunca uma concessão.</li>
+                <li><strong>Remuneração Integral:</strong> Todo esforço além do contrato, seja em horas extras ou adicional noturno, deve ser devidamente remunerado. Trabalho invisível não existe.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>III. O Direito à Segurança e Estabilidade</h2>
+            <span class="quote">Quem se acidenta servindo à sociedade não pode ser descartado.</span>
+            <ul>
+                <li><strong>Garantia de Cuidado:</strong> Em caso de acidente ou doença ocupacional, exigimos o cumprimento rigoroso da estabilidade. O trabalhador ferido merece cuidado, não demissão.</li>
+                <li><strong>Transparência:</strong> A abertura da CAT (Comunicação de Acidente de Trabalho) é um direito imediato, garantindo que nenhum dano à nossa saúde seja silenciado.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>IV. O Direito ao Respeito e à Justiça Social</h2>
+            <span class="quote">A invisibilidade social não justifica o abuso.</span>
+            <ul>
+                <li><strong>Tolerância Zero:</strong> Gritar, humilhar ou desrespeitar quem limpa é um atentado à dignidade humana. Exigimos ambientes de trabalho livres de violência moral e discriminação.</li>
+                <li><strong>Voz Ativa:</strong> Todo trabalhador tem o direito de denunciar irregularidades sem medo de retaliação. A justiça deve ser acessível, rápida e eficaz para todos.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p class="slogan">LIMPEZA É SAÚDE. CONSERVAÇÃO É RESPEITO. DIREITOS SÃO CONQUISTAS.</p>
+        </footer>
+    </article>
+
+</body>
+</html>
