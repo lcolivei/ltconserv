@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustentabilidade e Conscientização Ambiental | LT Conservação e Limpeza</title>
+    <link href="LT.png" rel="icon">
+    <style>
+        :root {
+            --primary-green: #1e6b38;
+            --secondary-green: #2e8b57;
+            --light-green: #eef7f0;
+            --dark-text: #1f2937;
+            --muted-text: #4b5563;
+            --white: #ffffff;
+            --border-color: #d1e7dd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--dark-text);
+            background-color: #f9fafb;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header img {
+            height: 45px;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-green);
+        }
+
+        .btn-orcamento {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .btn-orcamento:hover {
+            background-color: #16522a;
+        }
+
+        .hero-sustentabilidade {
+            background: linear-gradient(135deg, #16522a 0%, #2e8b57 100%);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero-sustentabilidade .badge-ambiental {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-sustentabilidade h1 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-sustentabilidade p {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3.5rem 5%;
+        }
+
+        .section-block {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e5e7eb;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 0.8rem;
+        }
+
+        .section-header span.icon {
+            font-size: 1.8rem;
+            background: var(--light-green);
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-green);
+            font-size: 1.6rem;
+        }
+
+        .pillar-tag {
+            display: inline-block;
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: #f8faf9;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.6rem;
+            font-size: 1.15rem;
+        }
+
+        .card p {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        .steps-list {
+            list-style: none;
+            margin-top: 1.2rem;
+        }
+
+        .steps-list li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .steps-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .alert-box {
+            background-color: #fff8e6;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #78350f;
+        }
+
+        .cta-footer {
+            background-color: var(--light-green);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-footer h3 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-footer p {
+            color: var(--muted-text);
+            margin-bottom: 1.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            text-align: center;
+            padding: 2rem 5%;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .hero-sustentabilidade h1 {
+                font-size: 1.8rem;
+            }
+            .section-block {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img alt="LT Conserva" src="LT.png"></a>
+        <nav>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="index.html#servicos">Serviços</a>
+            <a href="sustentabilidade.html" class="active">Sustentabilidade</a>
+            <a href="index.html#contato">Contato</a>
+        </nav>
+        <a href="orcamento.html" class="btn-orcamento">Solicitar Orçamento</a>
+    </header>
+
+    <section class="hero-sustentabilidade">
+        <span class="badge-ambiental">Compromisso Socioambiental • LT Conservação</span>
+        <h1>Limpeza Consciente e Sustentável</h1>
+        <p>Na LT Conservação e Limpeza, unimos eficiência operacional à responsabilidade ambiental para proteger a saúde dos moradores, colaboradores e o meio ambiente em Belo Horizonte e região.</p>
+    </section>
+
+    <main class="container">
+
+        <!-- 1. Informativo Digital sobre Produtos Ecológicos -->
+        <section class="section-block" id="produtos-ecologicos">
+            <div class="section-header">
+                <span class="icon">🌱</span>
+                <h2>1. Informativo Digital: Produtos de Limpeza Ecológicos</h2>
+            </div>
+            <span class="pillar-tag">Saúde, Bem-estar e Preservação Ambiental</span>
+            <p>Produtos de limpeza convencionais frequentemente contêm fosfatos, cloro excessivo e compostos orgânicos voláteis (COVs) que contaminam lençóis freáticos e prejudicam a qualidade do ar interno. Por isso, a <strong>LT Conservação</strong> prioriza insumos biodegradáveis e ecológicos em suas operações.</p>
+
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Proteção dos Recursos Hídricos</h3>
+                    <p>Fórmulas biodegradáveis se decompõem rapidamente na natureza sem formar espumas tóxicas nos rios e córregos, preservando a fauna aquática e evitando a poluição da água.</p>
+                </div>
+                <div class="card">
+                    <h3>Saúde Respiratória e Bem-Estar</h3>
+                    <p>A ausência de vapores tóxicos e fragrâncias sintéticas agressivas reduz alergias, irritações oculares e problemas respiratórios em crianças, idosos, animais de estimação e colaboradores.</p>
+                </div>
+                <div class="card">
+                    <h3>Menor Impacto Ambiental</h3>
+                    <p>Produtos concentrados de alta eficiência exigem menos plástico nas embalagens e reduzem o volume de resíduos gerados no transporte e no uso diário.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Guia de Descarte Correto -->
+        <section class="section-block" id="guia-descarte">
+            <div class="section-header">
+                <span class="icon">♻️</span>
+                <h2>2. Guia Prático de Descarte Correto de Embalagens e Resíduos</h2>
+            </div>
+            <span class="pillar-tag">Prevenção de Contaminações e Segurança Coletiva</span>
+            <p>O descarte inadequado de frascos e restos químicos pode causar acidentes com coletores de lixo e contaminar o solo. Siga estas orientações práticas no seu condomínio ou residência:</p>
+
+            <ul class="steps-list">
+                <li><strong>Esvazie completamente o frasco:</strong> Utilize todo o conteúdo do produto até o fim antes de descartar a embalagem. Nunca despeje restos concentrados de químicos diretamente no ralo ou vaso sanitário.</li>
+                <li><strong>Faça a tríplice lavagem (quando aplicável):</strong> Enxágue o frasco vazio com um pouco de água e utilize essa água na própria limpeza de pisos ou áreas externas, evitando desperdício e resíduos químicos no plástico.</li>
+                <li><strong>Mantenha os rótulos originais:</strong> Nunca retire o rótulo de produtos químicos nem reutilize embalagens de saneantes para armazenar água ou alimentos, evitando riscos graves de intoxicação.</li>
+                <li><strong>Separe para a coleta seletiva:</strong> Embalagens plásticas (PEAD/PET) limpas e secas devem ser encaminhadas para cooperativas de reciclagem ou pontos de entrega voluntária (PEVs) em Belo Horizonte.</li>
+            </ul>
+
+            <div class="alert-box">
+                <strong>Atenção:</strong> Embalagens de produtos altamente corrosivos, tintas, solventes ou aerossóis não devem ir para o lixo comum. Consulte os ecopontos da prefeitura para destinação de resíduos perigosos.
+            </div>
+        </section>
+
+        <!-- 3. Dicas de Sustentabilidade em Condomínios -->
+        <section class="section-block" id="dicas-condominios">
+            <div class="section-header">
+                <span class="icon">🏢</span>
+                <h2>3. Cartilha Digital: Sustentabilidade no Dia a Dia do Condomínio</h2>
+            </div>
+            <span class="pillar-tag">Educação e Conscientização Ambiental</span>
+            <p>Pequenas mudanças na rotina dos moradores transformam o condomínio em um ambiente mais econômico, limpo e sustentável:</p>
+
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Coleta Seletiva Organizada</h3>
+                    <p>Separe resíduos secos (papel, plástico, metal e vidro) dos resíduos orgânicos. Higienize embalagens recicláveis para evitar mau cheiro e atração de vetores nas lixeiras do prédio.</p>
+                </div>
+                <div class="card">
+                    <h3>Uso Racional de Água</h3>
+                    <p>Evite lavar calçadas e garagens com mangueira. Dê preferência à varrição a seco e ao uso de baldes ou lavadoras de alta pressão com controle de vazão.</p>
+                </div>
+                <div class="card">
+                    <h3>Descarte de Óleo de Cozinha</h3>
+                    <p>Nunca jogue óleo usado na pia — 1 litro de óleo contamina até 25 mil litros de água. Armazene em garrafas PET fechadas e entregue nos pontos de coleta do condomínio.</p>
+                </div>
+                <div class="card">
+                    <h3>Pilhas, Baterias e Eletrônicos</h3>
+                    <p>Metais pesados como chumbo e mercúrio contaminam o solo por décadas. Utilize coletores específicos para lixo eletrônico nas áreas comuns do edifício.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-footer">
+            <h3>Quer levar uma limpeza mais sustentável para o seu condomínio?</h3>
+            <p>A LT Conservação e Limpeza atua em Belo Horizonte e região com equipe capacitada e compromisso ambiental.</p>
+            <a href="orcamento.html" class="btn-orcamento">Solicitar Proposta Personalizada</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 LT Conservação e Limpeza • Belo Horizonte e Região Metropolitana</p>
+        <p style="margin-top: 0.4rem; font-size: 0.85rem; opacity: 0.85;">Responsabilidade Socioambiental e Conservação Profissional</p>
+    </footer>
+
+</body>
+</html>
